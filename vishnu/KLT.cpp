@@ -44,13 +44,14 @@ int main( int argc, char** argv )
     vector<cv::Point2f> prev_keypoints;
     vector<cv::Point2f> next_keypoints_klt;
     vector<cv::Point2f> prev_keypoints_klt;
-    bool grid[10][10]= {false};
+    bool grid[20][15]= {false};
+    cout<<"image size"<<img_1.size()<<endl;
     cout<<"image size"<<img_1.rows<<endl;
     cout<<"image size"<<img_1.cols<<endl;
     for ( auto kp:keypoints )
         {
-            int norm_x = (int)round((kp.x/img_1.cols)*10)-1;
-            int norm_y = (int)round((kp.y/img_1.rows)*10)-1;
+            int norm_x = (int)round((kp.x/img_1.cols)*20)-1;
+            int norm_y = (int)round((kp.y/img_1.rows)*15)-1;
             cout<<"normaal x"<<norm_x<<"y"<<norm_y<<endl;
            cout<<kp.x<<"y"<<kp.y<<endl; 
            if (grid[norm_x][norm_y]==false)
@@ -84,7 +85,7 @@ int main( int argc, char** argv )
     {
         //cout<<(int)status[i]<<endl;
         auto distance_fw_bw= sqrt(pow((prev_keypoints_backward[i].x - prev_keypoints_forward[i].x ),2)+pow((prev_keypoints_backward[i].y  - prev_keypoints_forward[i].y ),2));
-        if(status[i] == 1 && distance_fw_bw<=0.02)
+        if(status[i] == 1 && distance_fw_bw<=0.2)
         {
             prev_keypoints_klt.push_back(prev_keypoints_forward[i]);
             next_keypoints_klt.push_back(next_keypoints[i]);    
@@ -102,9 +103,29 @@ int main( int argc, char** argv )
             pt.y =  next_keypoints_klt[i].y;
 
             line(img_1, prev_keypoints_klt[i], pt, cv::Scalar(0,255,255));
+            circle(img_1, prev_keypoints_klt[i], 5, cv::Scalar(0, 0, 255), -1);
+            circle(img_1, pt, 5, cv::Scalar(0, 255, 0), -1);
         }
     }
 
+    cv::imshow("klt tracker", img_1);
+    cv::waitKey(0);
+
+    //before KLT
+    for ( size_t i=0; i< prev_keypoints_forward.size() ;i++)
+    {
+        //cout<<(int)status[i]<<endl;
+        if(status[i] == 1)
+        {
+            Point pt;
+            pt.x =  next_keypoints[i].x + img_2.size[1];
+            pt.y =  next_keypoints[i].y;
+
+            line(img_1, prev_keypoints_forward[i], pt, cv::Scalar(0,255,255));
+            circle(img_1, prev_keypoints_forward[i], 5, cv::Scalar(0, 0, 255), -1);
+            circle(img_1, pt, 5, cv::Scalar(0, 255, 0), -1);
+        }
+    }
     cv::imshow("klt tracker", img_1);
     cv::waitKey(0);
 
