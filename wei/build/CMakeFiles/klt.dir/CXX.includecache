@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp
+iostream
+-
+fstream
+-
+list
+-
+vector
+-
+chrono
+-
+opencv2/core/core.hpp
+-
+opencv2/highgui/highgui.hpp
+-
+opencv2/features2d/features2d.hpp
+-
+opencv2/video/tracking.hpp
+-
+

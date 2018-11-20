@@ -1,0 +1,1 @@
+g++   -std=c++11 -Wall -o2 -fopenmp -g   CMakeFiles/visual_slam.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/offline/main.cpp.o  -o visual_slam -rdynamic 
