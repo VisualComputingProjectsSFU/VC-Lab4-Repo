@@ -29,7 +29,7 @@ VisualFrontend::VisualFrontend(size_t col, size_t row)
     detector_cpu->set("thres", threshold_extraction);
 
     // Initialize ID.
-    // detector_cpu = GoodFeaturesToTrackDetector_GPU(250, 0.01, 0);
+    detector_cpu = GoodFeaturesToTrackDetector_GPU(250, 0.01, 0);
 
     // d_pyrLK.winSize.width = 21;
     // d_pyrLK.winSize.height = 21;
@@ -135,7 +135,4 @@ void VisualFrontend::track1(cv::Mat &im_gray, Features2D &tracked_points)
             }
         }
     }
-
-    // Clear old points.
-    old_points = Features2D();
 }

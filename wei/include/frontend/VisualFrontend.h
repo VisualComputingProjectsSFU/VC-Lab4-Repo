@@ -48,7 +48,7 @@ class VisualFrontend
         // KLT tracker and feature detector.
         cv::Ptr<cv::FeatureDetector> detector_cpu;
         GoodFeaturesToTrackDetector_GPU detector_gpu;
-        PyrLKOpticalFlow d_pyrLK;
+        // PyrLKOpticalFlow d_pyrLK;
 
         // Data needed to guide extraction.
         OccupancyGrid grid;

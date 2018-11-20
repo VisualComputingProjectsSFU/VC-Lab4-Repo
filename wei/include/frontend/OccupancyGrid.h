@@ -53,11 +53,11 @@ class OccupancyGrid
         double cy;
 
         // Mask to define nearby features.
-        const std::array<cv::Point, 9>  nearby {
+        const std::array<cv::Point, 9>  nearby {{
             cv::Point(-1, 1),  cv::Point(0, 1),  cv::Point(1, 1), 
             cv::Point(-1, 0),  cv::Point(0, 0),  cv::Point(1, 0), 
             cv::Point(-1, -1), cv::Point(0, -1), cv::Point(1, -1)
-        };
+        }};
 };
 
 // Print current occupency grid.
