@@ -48,7 +48,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build
+CMAKE_SOURCE_DIR = /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build
@@ -124,17 +124,30 @@ demo/fast:
 .PHONY : demo/fast
 
 #=============================================================================
-# Target rules for targets named featuredetector
+# Target rules for targets named klt_five_points
 
 # Build rule for target.
-featuredetector: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 featuredetector
-.PHONY : featuredetector
+klt_five_points: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 klt_five_points
+.PHONY : klt_five_points
 
 # fast build rule for target.
-featuredetector/fast:
-	$(MAKE) -f CMakeFiles/featuredetector.dir/build.make CMakeFiles/featuredetector.dir/build
-.PHONY : featuredetector/fast
+klt_five_points/fast:
+	$(MAKE) -f CMakeFiles/klt_five_points.dir/build.make CMakeFiles/klt_five_points.dir/build
+.PHONY : klt_five_points/fast
+
+#=============================================================================
+# Target rules for targets named feature_detector
+
+# Build rule for target.
+feature_detector: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 feature_detector
+.PHONY : feature_detector
+
+# fast build rule for target.
+feature_detector/fast:
+	$(MAKE) -f CMakeFiles/feature_detector.dir/build.make CMakeFiles/feature_detector.dir/build
+.PHONY : feature_detector/fast
 
 #=============================================================================
 # Target rules for targets named klt
@@ -149,140 +162,167 @@ klt/fast:
 	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/build
 .PHONY : klt/fast
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.o: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o
+src/demo/demo.o: src/demo/demo.cpp.o
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.o
-
-# target to build an object file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o
-
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.i: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.i
-
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.i
-
-# target to preprocess a source file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.i:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.i
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.i
-
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.s: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.s
-
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.s
-
-# target to generate assembly for a file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.s:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.s
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.s
-
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.o: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.o
-
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.o
+.PHONY : src/demo/demo.o
 
 # target to build an object file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.o:
-	$(MAKE) -f CMakeFiles/featuredetector.dir/build.make CMakeFiles/featuredetector.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.o
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.o
+src/demo/demo.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/demo/demo.cpp.o
+.PHONY : src/demo/demo.cpp.o
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.i: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.i
+src/demo/demo.i: src/demo/demo.cpp.i
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.i
+.PHONY : src/demo/demo.i
 
 # target to preprocess a source file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.i:
-	$(MAKE) -f CMakeFiles/featuredetector.dir/build.make CMakeFiles/featuredetector.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.i
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.i
+src/demo/demo.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/demo/demo.cpp.i
+.PHONY : src/demo/demo.cpp.i
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.s: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.s
+src/demo/demo.s: src/demo/demo.cpp.s
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.s
+.PHONY : src/demo/demo.s
 
 # target to generate assembly for a file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.s:
-	$(MAKE) -f CMakeFiles/featuredetector.dir/build.make CMakeFiles/featuredetector.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.s
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.cpp.s
+src/demo/demo.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/demo/demo.cpp.s
+.PHONY : src/demo/demo.cpp.s
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.o: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.o
+src/demo/feature_detector.o: src/demo/feature_detector.cpp.o
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.o
+.PHONY : src/demo/feature_detector.o
 
 # target to build an object file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.o:
-	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.o
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.o
+src/demo/feature_detector.cpp.o:
+	$(MAKE) -f CMakeFiles/feature_detector.dir/build.make CMakeFiles/feature_detector.dir/src/demo/feature_detector.cpp.o
+.PHONY : src/demo/feature_detector.cpp.o
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.i: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.i
+src/demo/feature_detector.i: src/demo/feature_detector.cpp.i
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.i
+.PHONY : src/demo/feature_detector.i
 
 # target to preprocess a source file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.i:
-	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.i
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.i
+src/demo/feature_detector.cpp.i:
+	$(MAKE) -f CMakeFiles/feature_detector.dir/build.make CMakeFiles/feature_detector.dir/src/demo/feature_detector.cpp.i
+.PHONY : src/demo/feature_detector.cpp.i
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.s: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.s
+src/demo/feature_detector.s: src/demo/feature_detector.cpp.s
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.s
+.PHONY : src/demo/feature_detector.s
 
 # target to generate assembly for a file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.s:
-	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.s
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.s
+src/demo/feature_detector.cpp.s:
+	$(MAKE) -f CMakeFiles/feature_detector.dir/build.make CMakeFiles/feature_detector.dir/src/demo/feature_detector.cpp.s
+.PHONY : src/demo/feature_detector.cpp.s
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.o: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o
+src/demo/klt.o: src/demo/klt.cpp.o
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.o
+.PHONY : src/demo/klt.o
 
 # target to build an object file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o
+src/demo/klt.cpp.o:
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/demo/klt.cpp.o
+.PHONY : src/demo/klt.cpp.o
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.i: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.i
+src/demo/klt.i: src/demo/klt.cpp.i
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.i
+.PHONY : src/demo/klt.i
 
 # target to preprocess a source file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.i:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.i
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.i
+src/demo/klt.cpp.i:
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/demo/klt.cpp.i
+.PHONY : src/demo/klt.cpp.i
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.s: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.s
+src/demo/klt.s: src/demo/klt.cpp.s
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.s
+.PHONY : src/demo/klt.s
 
 # target to generate assembly for a file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.s:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.s
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.s
+src/demo/klt.cpp.s:
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/demo/klt.cpp.s
+.PHONY : src/demo/klt.cpp.s
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.o: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o
+src/demo/klt_five_points.o: src/demo/klt_five_points.cpp.o
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.o
+.PHONY : src/demo/klt_five_points.o
 
 # target to build an object file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o
+src/demo/klt_five_points.cpp.o:
+	$(MAKE) -f CMakeFiles/klt_five_points.dir/build.make CMakeFiles/klt_five_points.dir/src/demo/klt_five_points.cpp.o
+.PHONY : src/demo/klt_five_points.cpp.o
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.i: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.i
+src/demo/klt_five_points.i: src/demo/klt_five_points.cpp.i
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.i
+.PHONY : src/demo/klt_five_points.i
 
 # target to preprocess a source file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.i:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.i
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.i
+src/demo/klt_five_points.cpp.i:
+	$(MAKE) -f CMakeFiles/klt_five_points.dir/build.make CMakeFiles/klt_five_points.dir/src/demo/klt_five_points.cpp.i
+.PHONY : src/demo/klt_five_points.cpp.i
 
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.s: home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.s
+src/demo/klt_five_points.s: src/demo/klt_five_points.cpp.s
 
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.s
+.PHONY : src/demo/klt_five_points.s
 
 # target to generate assembly for a file
-home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.s:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.s
-.PHONY : home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.s
+src/demo/klt_five_points.cpp.s:
+	$(MAKE) -f CMakeFiles/klt_five_points.dir/build.make CMakeFiles/klt_five_points.dir/src/demo/klt_five_points.cpp.s
+.PHONY : src/demo/klt_five_points.cpp.s
+
+src/frontend/OccupancyGrid.o: src/frontend/OccupancyGrid.cpp.o
+
+.PHONY : src/frontend/OccupancyGrid.o
+
+# target to build an object file
+src/frontend/OccupancyGrid.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o
+.PHONY : src/frontend/OccupancyGrid.cpp.o
+
+src/frontend/OccupancyGrid.i: src/frontend/OccupancyGrid.cpp.i
+
+.PHONY : src/frontend/OccupancyGrid.i
+
+# target to preprocess a source file
+src/frontend/OccupancyGrid.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.i
+.PHONY : src/frontend/OccupancyGrid.cpp.i
+
+src/frontend/OccupancyGrid.s: src/frontend/OccupancyGrid.cpp.s
+
+.PHONY : src/frontend/OccupancyGrid.s
+
+# target to generate assembly for a file
+src/frontend/OccupancyGrid.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.s
+.PHONY : src/frontend/OccupancyGrid.cpp.s
+
+src/frontend/VisualFrontend.o: src/frontend/VisualFrontend.cpp.o
+
+.PHONY : src/frontend/VisualFrontend.o
+
+# target to build an object file
+src/frontend/VisualFrontend.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o
+.PHONY : src/frontend/VisualFrontend.cpp.o
+
+src/frontend/VisualFrontend.i: src/frontend/VisualFrontend.cpp.i
+
+.PHONY : src/frontend/VisualFrontend.i
+
+# target to preprocess a source file
+src/frontend/VisualFrontend.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.i
+.PHONY : src/frontend/VisualFrontend.cpp.i
+
+src/frontend/VisualFrontend.s: src/frontend/VisualFrontend.cpp.s
+
+.PHONY : src/frontend/VisualFrontend.s
+
+# target to generate assembly for a file
+src/frontend/VisualFrontend.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.s
+.PHONY : src/frontend/VisualFrontend.cpp.s
 
 # Help Target
 help:
@@ -290,26 +330,30 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... demo"
-	@echo "... featuredetector"
+	@echo "... edit_cache"
+	@echo "... klt_five_points"
+	@echo "... feature_detector"
 	@echo "... rebuild_cache"
 	@echo "... klt"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.o"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.i"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.s"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.o"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.i"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/featuredetector.s"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.o"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.i"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.s"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.o"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.i"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.s"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.o"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.i"
-	@echo "... home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.s"
+	@echo "... src/demo/demo.o"
+	@echo "... src/demo/demo.i"
+	@echo "... src/demo/demo.s"
+	@echo "... src/demo/feature_detector.o"
+	@echo "... src/demo/feature_detector.i"
+	@echo "... src/demo/feature_detector.s"
+	@echo "... src/demo/klt.o"
+	@echo "... src/demo/klt.i"
+	@echo "... src/demo/klt.s"
+	@echo "... src/demo/klt_five_points.o"
+	@echo "... src/demo/klt_five_points.i"
+	@echo "... src/demo/klt_five_points.s"
+	@echo "... src/frontend/OccupancyGrid.o"
+	@echo "... src/frontend/OccupancyGrid.i"
+	@echo "... src/frontend/OccupancyGrid.s"
+	@echo "... src/frontend/VisualFrontend.o"
+	@echo "... src/frontend/VisualFrontend.i"
+	@echo "... src/frontend/VisualFrontend.s"
 .PHONY : help
 
 

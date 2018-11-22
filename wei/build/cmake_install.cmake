@@ -1,4 +1,4 @@
-# Install script for directory: /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build
+# Install script for directory: /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
