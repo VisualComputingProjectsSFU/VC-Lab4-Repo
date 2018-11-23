@@ -38,24 +38,21 @@ protected:
 	cv::Mat im_prev;
 
 private:
-	// Configurations.
-	const bool is_gpu = true;
+	//unique ID for each point
+	unsigned int newId;
 
-        // Unique ID for each point.
-        unsigned int new_id;
+    //cv::Ptr<cv::FeatureDetector> detector;
 
-        // KLT tracker and feature detector.
-        cv::Ptr<cv::FeatureDetector> detector_cpu;
-        GoodFeaturesToTrackDetector_GPU detector_gpu;
-        PyrLKOpticalFlow tracker_gpu;
+	//klt tracker and feature detector
+    GoodFeaturesToTrackDetector_GPU gpu_detector;
+    PyrLKOpticalFlow d_pyrLK;
+	//Data needed to guide extraction
+	OccupancyGrid grid;
 
-        // Data needed to guide extraction.
-        OccupancyGrid grid;
+	//parameters
+	//const int thresholdExtraction = 20;
+	const double thresholdFBError = 1.0;
 
-        // Parameters.
-        const int threshold_extraction = 20;
-        const double threshold_error = 1.0;
-        const double threshold_validation = 0.05;
 };
 
 

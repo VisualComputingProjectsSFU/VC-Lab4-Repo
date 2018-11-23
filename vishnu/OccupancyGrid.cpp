@@ -5,59 +5,60 @@ using namespace cv;
 OccupancyGrid::OccupancyGrid()
 {
 	//initializer();
-	initialize1();
+	initializer1();
 }
 
-void OccupancyGrid::initialize1()
+void OccupancyGrid::initializer1()
 {
- resetGrid1();
+    Iy = 1;
+    Ix = 1;
+
+    resetGrid1();
 }
 
-void OccupancyGrid::setImageSize1(size_t col, size_t row)
+void OccupancyGrid::setImageSize1(size_t cols, size_t rows)
 {
-    ix = col;
-    iy = row;
-    cx = ix * 1.0 / nx;
-    cy = iy * 1.0 / ny;
+    Ix = cols / nx;
+    Iy = rows / ny;
 }
 
 void OccupancyGrid::addPoint1(Point2f& p)
 {
-    for (size_t i = 0; i < nearby.size(); i++)
-    {
-        int x = (int)(p.x / cx) + nearby[i].x;
-        int y = (int)(p.y / cy) + nearby[i].y;
-        if (x >= 0 && x < (int)nx && y >= 0 && y < (int)ny)
-        {
-            isFree[y][x] = false;
-        }
-    }
+    size_t i = p.x / Ix;
+    size_t j = p.y / Iy;
+
+    if(i >= nx || j >= ny)
+        return;
+
+    isFree[i][j] = false;
 }
 
 bool OccupancyGrid::isNewFeature1(Point2f& p)
 {
-    for (size_t i = 0; i < nearby.size(); i++)
-    {
-        int x = (int)(p.x / cx) + nearby[i].x;
-        int y = (int)(p.y / cy) + nearby[i].y;
-        if ((x >= 0 && x < (int)nx && y >= 0 && y < (int)ny) && 
-            isFree[y][x] == false)
-        {
-            return false;
-        }
-    }
-    return true;
+    int i = p.x / Ix;
+    int j = p.y / Iy;
+
+    bool isNew = true;
+
+    unsigned int minX = std::max(0, i - 1);
+    unsigned int maxX = std::min((int)nx, i + 2);
+
+    unsigned int minY = std::max(0, j - 1);
+    unsigned int maxY = std::min((int)ny, j + 2);
+
+    for(unsigned int x = minX; x < maxX; x++)
+        for(unsigned int y = minY; y < maxY; y++)
+            isNew = isNew && isFree[x][y];
+
+
+    return isNew;
 }
 
 void OccupancyGrid::resetGrid1()
 {
-    for (size_t y = 0; y < ny; y++)
-    {
-        for (size_t x = 0; x < nx; x++)
-        {
-            isFree[y][x] = true;
-        }
-    }
+    for (size_t i = 0; i < nx; i++)
+        for (size_t j = 0; j < ny; j++)
+            isFree[i][j] = true;
 
 }
 
