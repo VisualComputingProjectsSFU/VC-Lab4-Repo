@@ -7,7 +7,10 @@
 #include <list>
 #include <vector>
 #include <chrono>
+
 using namespace std;
+
+#include "frontend/VisualFrontend.h"
 
 
 #include <opencv2/core/core.hpp>
@@ -16,6 +19,7 @@ using namespace std;
 #include <opencv2/video/tracking.hpp>
 
 using namespace cv;
+
 void downloadpts(const GpuMat& d_mat, vector<Point2f>& vec)
 {
     vec.resize(d_mat.cols);
@@ -40,18 +44,44 @@ int main( int argc, char** argv )
     //-- Read two images
     Mat img_1 = imread ( argv[1], CV_LOAD_IMAGE_COLOR );
     Mat img_2 = imread ( argv[2], CV_LOAD_IMAGE_COLOR );
+    
+    bool is_cpu= false;
+    float feature_detector_threshold = 0.5;
 
-    list< cv::Point2f > keypoints;
+    vector<cv::Point2f> keypoints;
     vector<cv::KeyPoint> kps;
 
-    std::string detectorType = "Feature2D.BRISK";
-    Ptr<FeatureDetector>detector = Algorithm::create<FeatureDetector>(detectorType);
-	detector->set("thres", 100);
+    
+	if (is_cpu)
+            {
+               // Detect features.
+                std::string detectorType = "Feature2D.BRISK";
+                cv::Ptr<cv::FeatureDetector>detector = 
+                    cv::Algorithm::create<cv::FeatureDetector>(detectorType);
+                detector->set("thres", feature_detector_threshold);
+                detector->detect(img_1, kps);
+                
+                // Convert keypoints points.
+                for (auto kp : kps)
+                {
+                    keypoints.push_back(kp.pt);
+                } 
+            }
+            else
+            {
+                
+                // Detect features.
+                GoodFeaturesToTrackDetector_GPU detector;
+                detector = GoodFeaturesToTrackDetector_GPU(250, 0.01, 0);
+                
+                GpuMat d_img_1(img_1);
+                GpuMat d_vector_key_points;
+                
+                detector(d_img_1, d_vector_key_points);
+                downloadpts(d_vector_key_points, keypoints);
+            }
 
 
-    detector->detect( img_1, kps );
-    for ( auto kp:kps )
-        keypoints.push_back( kp.pt );
 
     vector<cv::Point2f> next_keypoints;
     vector<cv::Point2f> prev_keypoints;
@@ -84,6 +114,8 @@ int main( int argc, char** argv )
     vector<float> error;
 
     //cpu
+    if (is_cpu)
+    {
     chrono::steady_clock::time_point t1 = chrono::steady_clock::now();
     cv::calcOpticalFlowPyrLK( img_1, img_2, prev_keypoints, next_keypoints, status, error );
     chrono::steady_clock::time_point t2 = chrono::steady_clock::now();
@@ -138,25 +170,34 @@ int main( int argc, char** argv )
     }
 
     cv::imshow("klt tracker", img_1);
-    //cv::waitKey(0);
-
+    cv::waitKey(0);
+    }
+    else {
 
     //gpu
+    cv::Mat mat_p = cv::Mat(1, prev_keypoints.size(), CV_32FC2);
+    for (size_t i = 0; i < prev_keypoints.size(); i++)
+    {
+     mat_p.at<cv::Vec2f>(0, i)[0] = prev_keypoints[i].x;
+     mat_p.at<cv::Vec2f>(0, i)[1] = prev_keypoints[i].y;
+    }
+                
     GpuMat gpu_img_1(img_1);
     GpuMat gpu_img_2(img_2);
-    GpuMat gpu_prev_keypoints(prev_keypoints);
+    GpuMat gpu_prev_keypoints(mat_p);
     GpuMat gpu_next_keypoints;
     GpuMat d_status,d_status_back;
     GpuMat gpu_points_back;
+    PyrLKOpticalFlow gpu_tracker;
 
     chrono::steady_clock::time_point t1 = chrono::steady_clock::now();
-    cv::PyrLKOpticalFlow.sparse( gpu_img_1, gpu_img_2, gpu_prev_keypoints, gpu_next_keypoints, d_status);
+    gpu_tracker.sparse( gpu_img_1, gpu_img_2, gpu_prev_keypoints, gpu_next_keypoints, d_status);
     chrono::steady_clock::time_point t2 = chrono::steady_clock::now();
     chrono::duration<double> time_used = chrono::duration_cast<chrono::duration<double>>( t2-t1 );
     cout<<"LK Flow use time for forward："<<time_used.count()<<" seconds."<<endl;
 
     t1 = chrono::steady_clock::now();
-    cv::PyrLKOpticalFlow.sparse( gpu_img_2 , gpu_img_1, gpu_next_keypoints, gpu_points_back, d_status_back);
+    gpu_tracker.sparse( gpu_img_2 , gpu_img_1, gpu_next_keypoints, gpu_points_back, d_status_back);
     t2 = chrono::steady_clock::now();
     time_used = chrono::duration_cast<chrono::duration<double>>( t2-t1 );
     cout<<"LK Flow use time for backward："<<time_used.count()<<" seconds."<<endl;
@@ -214,6 +255,7 @@ int main( int argc, char** argv )
 
     cv::imshow("klt tracker", img_1);
     cv::waitKey(0);
+    }
 
     // //before KLT
     // for ( size_t i=0; i< prev_keypoints_forward.size() ;i++)
