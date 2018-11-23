@@ -41,7 +41,7 @@ void VisualFrontend::trackAndExtract(cv::Mat& im_gray, Features2D& trackedPoints
 	{
         //Track prevoius points with optical flow
 		auto festart = chrono::steady_clock::now();
-		track(im_gray, trackedPoints);
+		track1(im_gray, trackedPoints);
 		auto feend = chrono::steady_clock::now();
 		cout << "klt running time: "<< chrono::duration <double, milli> (feend-festart).count() << " ms" << endl;
 
@@ -52,7 +52,7 @@ void VisualFrontend::trackAndExtract(cv::Mat& im_gray, Features2D& trackedPoints
 
 	//Extract new points
 	auto festart = chrono::steady_clock::now();
-	extract(im_gray, newPoints);
+	extract1(im_gray, newPoints);
 	auto feend = chrono::steady_clock::now();
 	cout << "new feature time: "<< chrono::duration <double, milli> (feend-festart).count() << " ms" << endl;
 
@@ -64,24 +64,20 @@ void VisualFrontend::trackAndExtract(cv::Mat& im_gray, Features2D& trackedPoints
 void VisualFrontend::extract1(Mat& im_gray, Features2D& newPoints)
 {
     vector<Point2f> newPointsVector;
-	//detector->detect(im_gray, newPointsVector);
-
-
-    //GoodFeaturesToTrackDetector_GPU detector(300, 0.01, 0);
-    GpuMat d_frame0Gray(im_gray);
+	 GpuMat d_frame0Gray(im_gray);
     GpuMat d_prevPts;
 
     gpu_detector(d_frame0Gray, d_prevPts);
 
     downloadpts(d_prevPts, newPointsVector);
+    
+    grid.setImageSize1(im_gray.cols, im_gray.rows);
 
 	//Prepare grid
-	grid.setImageSize(im_gray.cols, im_gray.rows);
-
 #pragma omp parallel
 	for (Point2f& oldPoint : oldPoints)
 	{
-		grid.addPoint(oldPoint);
+		grid.addPoint1(oldPoint);
 	}
 	for (auto point : newPointsVector)
 	{
@@ -92,22 +88,15 @@ void VisualFrontend::extract1(Mat& im_gray, Features2D& newPoints)
 			newId++;
 		}
 	}
-	grid.resetGrid();
+	grid.resetGrid1();
 }
 
 void VisualFrontend::track1(Mat& im_gray, Features2D& trackedPoints)
-{//vector<unsigned char> status;
-    //vector<unsigned char> status_back;
-    //vector<Point2f> pts_back;
-    //vector<Point2f> nextPts;
-    //	vector<float> err;
-    //	vector<float> err_back;
-
+{
     vector<Point2f> points = oldPoints.getPoints();
     vector<float> fb_err;
     Mat prevPts = Mat(1,points.size(), CV_32FC2);
-    //Calculate forward optical flow for prev_location
-
+    
 
     for(size_t i=0;i<points.size();i++){
         prevPts.at<Vec2f>( 0, i )[0]=points[i].x;
@@ -127,6 +116,9 @@ void VisualFrontend::track1(Mat& im_gray, Features2D& trackedPoints)
 
     d_pyrLK.sparse(d_frame0, d_frame1, d_prevPts, d_nextPts, d_status);
 
+    vector<Point2f> PrevPointsVec;
+    downloadpts(d_prevPts, PrevPointsVec);
+    
     vector<Point2f> nextPts(d_nextPts.cols);
     downloadpts(d_nextPts, nextPts);
 
@@ -140,26 +132,20 @@ void VisualFrontend::track1(Mat& im_gray, Features2D& trackedPoints)
 
     vector<uchar> status_back(d_status_back.cols);
     downloadmask(d_status_back, status_back);
-
-
-    //cpu version
-
-//	calcOpticalFlowPyrLK(im_prev, im_gray, points, nextPts, status, err);
-//	//Calculate backward optical flow for prev_location
-//	calcOpticalFlowPyrLK(im_gray, im_prev, nextPts, pts_back, status_back,
-//				err_back);
-
-
-
-    //Calculate forward-backward error
-    for (size_t i = 0; i < points.size(); i++)
+    
+    for (size_t i = 0; i < status.size(); i++) 
     {
-        fb_err.push_back(norm(pts_back[i] - points[i]));
+      float distance = std::sqrt(
+                std::pow(PrevPointsVec[i].x - pts_back[i].x, 2) + 
+                std::pow(PrevPointsVec[i].y - pts_back[i].y, 2));
+        if (status.at(i) == 1 && status_back.at(i) == 1 && distance < thresholdFBError )
+        {
+         status[i] = 1;
+        }
+        else
+        {
+        status[i] = 0;
+        }
     }
-
-    //Set status depending on fb_err and lk error
-#pragma omp parallel
-    for (size_t i = 0; i < status.size(); i++)
-        status[i] = (fb_err[i] <= thresholdFBError) && status[i];
 
     trackedPoints = Features2D(oldPoints, nextPts, status);}

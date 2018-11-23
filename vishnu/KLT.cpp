@@ -65,20 +65,23 @@ int main( int argc, char** argv )
                 for (auto kp : kps)
                 {
                     keypoints.push_back(kp.pt);
-                } 
+                }
+                cout<<"CPU Detector keypoints size :"<<keypoints.size()<<endl; 
             }
             else
             {
                 
                 // Detect features.
                 GoodFeaturesToTrackDetector_GPU detector;
-                detector = GoodFeaturesToTrackDetector_GPU(250, 0.01, 0);
+                detector = GoodFeaturesToTrackDetector_GPU(1000, 0.01, 0);
                 
                 GpuMat d_img_1(img_1);
                 GpuMat d_vector_key_points;
                 
                 detector(d_img_1, d_vector_key_points);
                 downloadpts(d_vector_key_points, keypoints);
+                
+                cout<<"GPU Detector keypoints size :"<<keypoints.size()<<endl;
             }
 
 
@@ -87,31 +90,27 @@ int main( int argc, char** argv )
     vector<cv::Point2f> prev_keypoints;
     vector<cv::Point2f> next_keypoints_klt;
     vector<cv::Point2f> prev_keypoints_klt;
-    int g_x = 10;
-    int g_y = 10;
+    int g_x = 20;
+    int g_y = 15;
     bool grid[g_x][g_y]= {false};
-    cout<<"image size"<<img_1.size()<<endl;
-    cout<<"image size"<<img_1.rows<<endl;
-    cout<<"image size"<<img_1.cols<<endl;
     for ( auto kp:keypoints )
         {
-            int norm_x = (int)round((kp.x/img_1.cols)*g_x)-1;
-            int norm_y = (int)round((kp.y/img_1.rows)*g_y)-1;
+            int norm_x = (int)((kp.x/img_1.cols)*g_x)-1;
+            int norm_y = (int)((kp.y/img_1.rows)*g_y)-1;
            //  cout<<"normaal x"<<norm_x<<"y"<<norm_y<<endl;
            // cout<<kp.x<<"y"<<kp.y<<endl; 
            if (grid[norm_x][norm_y]==false)
+           //if(1==1)
            {
             prev_keypoints.push_back(kp);
             grid[norm_x][norm_y]=true;
             // cout<<"pushed"<<endl;
            }
-           else
-           {
-            // cout<<"rejected"<<endl;
-           }
         }
     vector<unsigned char> status;
     vector<float> error;
+    
+    cout<<"keypoints size after sparsity check :"<<prev_keypoints.size()<<endl;
 
     //cpu
     if (is_cpu)
@@ -225,6 +224,8 @@ int main( int argc, char** argv )
             next_keypoints_klt.push_back(cpu_next_keypoints[i]);    
         }
     }
+    
+    cout<<"keypoints size after KLT fb check :"<<prev_keypoints_klt.size()<<endl;
     // visualize all  keypoints
     hconcat(img_1,img_2,img_1);
     for ( size_t i=0; i< prev_keypoints_klt.size() ;i++)

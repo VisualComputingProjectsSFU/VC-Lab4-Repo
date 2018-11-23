@@ -38,8 +38,6 @@ bool OccupancyGrid::isNewFeature1(Point2f& p)
     int i = p.x / Ix;
     int j = p.y / Iy;
 
-    bool isNew = true;
-
     unsigned int minX = std::max(0, i - 1);
     unsigned int maxX = std::min((int)nx, i + 2);
 
@@ -47,11 +45,18 @@ bool OccupancyGrid::isNewFeature1(Point2f& p)
     unsigned int maxY = std::min((int)ny, j + 2);
 
     for(unsigned int x = minX; x < maxX; x++)
+     {
         for(unsigned int y = minY; y < maxY; y++)
-            isNew = isNew && isFree[x][y];
+        {
+            if (isFree[x][y] == false)
+            {
+            return false;
+            }    
+        }
+     }
 
 
-    return isNew;
+    return true;
 }
 
 void OccupancyGrid::resetGrid1()
