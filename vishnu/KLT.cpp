@@ -90,8 +90,8 @@ int main( int argc, char** argv )
     vector<cv::Point2f> prev_keypoints;
     vector<cv::Point2f> next_keypoints_klt;
     vector<cv::Point2f> prev_keypoints_klt;
-    int g_x = 20;
-    int g_y = 15;
+    int g_x = 10;
+    int g_y = 10;
     bool grid[g_x][g_y]= {false};
     for ( auto kp:keypoints )
         {
@@ -254,6 +254,7 @@ int main( int argc, char** argv )
         circle(img_1, pt, 5, cv::Scalar(0, 255, 0), -1);
     }
 
+    cv::imwrite("out.png", img_1);
     cv::imshow("klt tracker", img_1);
     cv::waitKey(0);
     }
