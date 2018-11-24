@@ -1,5 +1,6 @@
-/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles/edit_cache.dir
-/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles/demo.dir
-/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles/featuredetector.dir
-/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles/rebuild_cache.dir
-/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles/klt.dir
+/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles/edit_cache.dir
+/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles/demo.dir
+/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles/klt.dir
+/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles/rebuild_cache.dir
+/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles/feature_detector.dir
+/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles/klt_five_points.dir

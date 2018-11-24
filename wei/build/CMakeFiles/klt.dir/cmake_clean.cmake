@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/klt.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/klt.cpp.o"
+  "CMakeFiles/klt.dir/src/frontend/OccupancyGrid.cpp.o"
+  "CMakeFiles/klt.dir/src/frontend/VisualFrontend.cpp.o"
+  "CMakeFiles/klt.dir/src/demo/klt.cpp.o"
   "klt.pdb"
   "klt"
 )

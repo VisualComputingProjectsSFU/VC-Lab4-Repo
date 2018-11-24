@@ -1,4 +1,4 @@
-# Install script for directory: /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5
+# Install script for directory: /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

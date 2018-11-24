@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5
+CMAKE_SOURCE_DIR = /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build
+CMAKE_BINARY_DIR = /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -124,17 +124,17 @@ demo/fast:
 .PHONY : demo/fast
 
 #=============================================================================
-# Target rules for targets named klt_five_points
+# Target rules for targets named klt
 
 # Build rule for target.
-klt_five_points: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 klt_five_points
-.PHONY : klt_five_points
+klt: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 klt
+.PHONY : klt
 
 # fast build rule for target.
-klt_five_points/fast:
-	$(MAKE) -f CMakeFiles/klt_five_points.dir/build.make CMakeFiles/klt_five_points.dir/build
-.PHONY : klt_five_points/fast
+klt/fast:
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/build
+.PHONY : klt/fast
 
 #=============================================================================
 # Target rules for targets named feature_detector
@@ -150,17 +150,17 @@ feature_detector/fast:
 .PHONY : feature_detector/fast
 
 #=============================================================================
-# Target rules for targets named klt
+# Target rules for targets named klt_five_points
 
 # Build rule for target.
-klt: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 klt
-.PHONY : klt
+klt_five_points: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 klt_five_points
+.PHONY : klt_five_points
 
 # fast build rule for target.
-klt/fast:
-	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/build
-.PHONY : klt/fast
+klt_five_points/fast:
+	$(MAKE) -f CMakeFiles/klt_five_points.dir/build.make CMakeFiles/klt_five_points.dir/build
+.PHONY : klt_five_points/fast
 
 src/demo/demo.o: src/demo/demo.cpp.o
 
@@ -277,6 +277,7 @@ src/frontend/OccupancyGrid.o: src/frontend/OccupancyGrid.cpp.o
 # target to build an object file
 src/frontend/OccupancyGrid.cpp.o:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/frontend/OccupancyGrid.cpp.o
 .PHONY : src/frontend/OccupancyGrid.cpp.o
 
 src/frontend/OccupancyGrid.i: src/frontend/OccupancyGrid.cpp.i
@@ -286,6 +287,7 @@ src/frontend/OccupancyGrid.i: src/frontend/OccupancyGrid.cpp.i
 # target to preprocess a source file
 src/frontend/OccupancyGrid.cpp.i:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.i
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/frontend/OccupancyGrid.cpp.i
 .PHONY : src/frontend/OccupancyGrid.cpp.i
 
 src/frontend/OccupancyGrid.s: src/frontend/OccupancyGrid.cpp.s
@@ -295,6 +297,7 @@ src/frontend/OccupancyGrid.s: src/frontend/OccupancyGrid.cpp.s
 # target to generate assembly for a file
 src/frontend/OccupancyGrid.cpp.s:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.s
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/frontend/OccupancyGrid.cpp.s
 .PHONY : src/frontend/OccupancyGrid.cpp.s
 
 src/frontend/VisualFrontend.o: src/frontend/VisualFrontend.cpp.o
@@ -304,6 +307,7 @@ src/frontend/VisualFrontend.o: src/frontend/VisualFrontend.cpp.o
 # target to build an object file
 src/frontend/VisualFrontend.cpp.o:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/frontend/VisualFrontend.cpp.o
 .PHONY : src/frontend/VisualFrontend.cpp.o
 
 src/frontend/VisualFrontend.i: src/frontend/VisualFrontend.cpp.i
@@ -313,6 +317,7 @@ src/frontend/VisualFrontend.i: src/frontend/VisualFrontend.cpp.i
 # target to preprocess a source file
 src/frontend/VisualFrontend.cpp.i:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.i
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/frontend/VisualFrontend.cpp.i
 .PHONY : src/frontend/VisualFrontend.cpp.i
 
 src/frontend/VisualFrontend.s: src/frontend/VisualFrontend.cpp.s
@@ -322,6 +327,7 @@ src/frontend/VisualFrontend.s: src/frontend/VisualFrontend.cpp.s
 # target to generate assembly for a file
 src/frontend/VisualFrontend.cpp.s:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.s
+	$(MAKE) -f CMakeFiles/klt.dir/build.make CMakeFiles/klt.dir/src/frontend/VisualFrontend.cpp.s
 .PHONY : src/frontend/VisualFrontend.cpp.s
 
 # Help Target
@@ -330,12 +336,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... demo"
 	@echo "... edit_cache"
-	@echo "... klt_five_points"
-	@echo "... feature_detector"
-	@echo "... rebuild_cache"
+	@echo "... demo"
 	@echo "... klt"
+	@echo "... rebuild_cache"
+	@echo "... feature_detector"
+	@echo "... klt_five_points"
 	@echo "... src/demo/demo.o"
 	@echo "... src/demo/demo.i"
 	@echo "... src/demo/demo.s"

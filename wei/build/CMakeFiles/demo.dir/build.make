@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build
+CMAKE_SOURCE_DIR = /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build
+CMAKE_BINARY_DIR = /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/demo.dir/depend.make
@@ -57,111 +57,128 @@ include CMakeFiles/demo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/demo.dir/flags.make
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o: CMakeFiles/demo.dir/flags.make
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o: /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o"
-	g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o -c /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp
+CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o: CMakeFiles/demo.dir/flags.make
+CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o: ../src/frontend/OccupancyGrid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o"
+	g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o -c /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/frontend/OccupancyGrid.cpp
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.i"
-	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp > CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.i
+CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.i"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/frontend/OccupancyGrid.cpp > CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.i
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.s"
-	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp -o CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.s
+CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.s"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/frontend/OccupancyGrid.cpp -o CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.s
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o.requires:
+CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o.requires:
 
-.PHONY : CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o.requires
+.PHONY : CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o.requires
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o.provides: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o.requires
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o.provides.build
-.PHONY : CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o.provides
+CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o.provides: CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o.requires
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o.provides.build
+.PHONY : CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o.provides
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o.provides.build: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o
-
-
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o: CMakeFiles/demo.dir/flags.make
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o: /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o"
-	g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o -c /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp
-
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.i"
-	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp > CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.i
-
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.s"
-	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp -o CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.s
-
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o.requires:
-
-.PHONY : CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o.requires
-
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o.provides: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o.requires
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o.provides.build
-.PHONY : CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o.provides
-
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o.provides.build: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o
+CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o.provides.build: CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o
 
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o: CMakeFiles/demo.dir/flags.make
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o: /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o"
-	g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o -c /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp
+CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o: CMakeFiles/demo.dir/flags.make
+CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o: ../src/frontend/VisualFrontend.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o"
+	g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o -c /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/frontend/VisualFrontend.cpp
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.i"
-	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp > CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.i
+CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.i"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/frontend/VisualFrontend.cpp > CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.i
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.s"
-	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp -o CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.s
+CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.s"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/frontend/VisualFrontend.cpp -o CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.s
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o.requires:
+CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o.requires:
 
-.PHONY : CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o.requires
+.PHONY : CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o.requires
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o.provides: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o.requires
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o.provides.build
-.PHONY : CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o.provides
+CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o.provides: CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o.requires
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o.provides.build
+.PHONY : CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o.provides
 
-CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o.provides.build: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o
+CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o.provides.build: CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o
+
+
+CMakeFiles/demo.dir/src/demo/demo.cpp.o: CMakeFiles/demo.dir/flags.make
+CMakeFiles/demo.dir/src/demo/demo.cpp.o: ../src/demo/demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/demo.dir/src/demo/demo.cpp.o"
+	g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/demo/demo.cpp.o -c /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/demo/demo.cpp
+
+CMakeFiles/demo.dir/src/demo/demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/demo/demo.cpp.i"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/demo/demo.cpp > CMakeFiles/demo.dir/src/demo/demo.cpp.i
+
+CMakeFiles/demo.dir/src/demo/demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/demo/demo.cpp.s"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/src/demo/demo.cpp -o CMakeFiles/demo.dir/src/demo/demo.cpp.s
+
+CMakeFiles/demo.dir/src/demo/demo.cpp.o.requires:
+
+.PHONY : CMakeFiles/demo.dir/src/demo/demo.cpp.o.requires
+
+CMakeFiles/demo.dir/src/demo/demo.cpp.o.provides: CMakeFiles/demo.dir/src/demo/demo.cpp.o.requires
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/demo/demo.cpp.o.provides.build
+.PHONY : CMakeFiles/demo.dir/src/demo/demo.cpp.o.provides
+
+CMakeFiles/demo.dir/src/demo/demo.cpp.o.provides.build: CMakeFiles/demo.dir/src/demo/demo.cpp.o
 
 
 # Object files for target demo
 demo_OBJECTS = \
-"CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o" \
-"CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o" \
-"CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o"
+"CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o" \
+"CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o" \
+"CMakeFiles/demo.dir/src/demo/demo.cpp.o"
 
 # External object files for target demo
 demo_EXTERNAL_OBJECTS =
 
-demo: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o
-demo: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o
-demo: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o
+demo: CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o
+demo: CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o
+demo: CMakeFiles/demo.dir/src/demo/demo.cpp.o
 demo: CMakeFiles/demo.dir/build.make
-demo: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_ts.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_ocl.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_gpu.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_contrib.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_legacy.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_features2d.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.2.4.9
-demo: /usr/lib/x86_64-linux-gnu/libopencv_core.so.2.4.9
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_videostab.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_ts.a
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_superres.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_stitching.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_contrib.so.2.4.13
+demo: /usr/local/lib/libpangolin.so
+demo: /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/Sophus/build/libSophus.so
+demo: ../src/logic/libfeature_tracking_hidden.so
+demo: ../src/logic/libfive-point-nister.so
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_nonfree.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_ocl.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_gpu.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_photo.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_objdetect.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_legacy.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_video.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_ml.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_calib3d.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_features2d.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_highgui.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_imgproc.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_flann.so.2.4.13
+demo: /home/nvidia/Documents/cmpt742/opencv/build/lib/libopencv_core.so.2.4.13
+demo: /usr/local/cuda-9.0/lib64/libnppc.so
+demo: /usr/local/cuda-9.0/lib64/libnpps.so
+demo: /usr/local/cuda-9.0/lib64/libcufft.so
+demo: /usr/lib/aarch64-linux-gnu/libGLU.so
+demo: /usr/lib/aarch64-linux-gnu/libGL.so
+demo: /usr/lib/aarch64-linux-gnu/libGLEW.so
+demo: /usr/lib/aarch64-linux-gnu/libSM.so
+demo: /usr/lib/aarch64-linux-gnu/libICE.so
+demo: /usr/lib/aarch64-linux-gnu/libX11.so
+demo: /usr/lib/aarch64-linux-gnu/libXext.so
+demo: /usr/lib/aarch64-linux-gnu/libpng.so
+demo: /usr/lib/aarch64-linux-gnu/libz.so
 demo: CMakeFiles/demo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -169,9 +186,9 @@ CMakeFiles/demo.dir/build: demo
 
 .PHONY : CMakeFiles/demo.dir/build
 
-CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o.requires
-CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o.requires
-CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o.requires
+CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o.requires
+CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o.requires
+CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/src/demo/demo.cpp.o.requires
 
 .PHONY : CMakeFiles/demo.dir/requires
 
@@ -180,6 +197,6 @@ CMakeFiles/demo.dir/clean:
 .PHONY : CMakeFiles/demo.dir/clean
 
 CMakeFiles/demo.dir/depend:
-	cd /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build /home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/build/CMakeFiles/demo.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build /home/nvidia/Documents/cmpt742/SimpleVisualOdometry/wei/build/CMakeFiles/demo.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/demo.dir/depend
 

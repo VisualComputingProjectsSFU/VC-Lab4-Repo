@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/demo/demo.cpp.o"
-  "CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/OccupancyGrid.cpp.o"
-  "CMakeFiles/demo.dir/home/wwa53/sfuhome/CMPT_742/Assignment/Assignment_5/src/frontend/VisualFrontend.cpp.o"
+  "CMakeFiles/demo.dir/src/frontend/OccupancyGrid.cpp.o"
+  "CMakeFiles/demo.dir/src/frontend/VisualFrontend.cpp.o"
+  "CMakeFiles/demo.dir/src/demo/demo.cpp.o"
   "demo.pdb"
   "demo"
 )
