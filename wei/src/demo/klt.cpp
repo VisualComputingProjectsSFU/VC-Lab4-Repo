@@ -4,6 +4,8 @@
 #include <vector>
 #include <chrono>
 
+#include "frontend/VisualFrontend.h"
+
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/features2d/features2d.hpp>
@@ -18,8 +20,9 @@ int main( int argc, char** argv )
         return 1;
     }
 
-    bool is_display_all_line = true;
-    bool is_display_all_point = true;
+    bool is_gpu = true;
+    bool is_display_all_line = false;
+    bool is_display_all_point = false;
     bool is_display_grid = true;
     int grid_size = 10;
     int num_point_per_cell = 1;
@@ -37,6 +40,7 @@ int main( int argc, char** argv )
     std::chrono::duration<double> time_used;
     std::vector<cv::Point2f> prev_keypoints;
     std::vector<cv::Point2f> next_keypoints;
+    PyrLKOpticalFlow tracker;
 
     // Loop through the grids and find the key points.
     for (int y = 0; y < grid_size; y++)
@@ -56,31 +60,43 @@ int main( int argc, char** argv )
 
             std::list<cv::Point2f> list_key_points;
             std::vector<cv::KeyPoint> vector_key_points;
-
-            // Detect features.
-            std::string detectorType = "Feature2D.BRISK";
-            cv::Ptr<cv::FeatureDetector>detector = 
-                cv::Algorithm::create<cv::FeatureDetector>(detectorType);
-            detector->set("thres", feature_detector_threshold);
-            detector->detect(img_1, vector_key_points);
-
-            // Skip if no result found.
-            if (vector_key_points.size() == 0) {continue;}
-
-            // Convert vector points to list points.
-            for (auto kp : vector_key_points)
-            {
-                list_key_points.push_back(kp.pt);
-            }
-
+            
             // Prepare both key points.
             std::vector<cv::Point2f> keypoints_1;
             std::vector<cv::Point2f> keypoints_1_2;
             std::vector<cv::Point2f> keypoints_2_1;
-            for (auto kp : list_key_points)
+
+            if (is_gpu)
             {
-                keypoints_1.push_back(kp);
+                // Detect features.
+                GoodFeaturesToTrackDetector_GPU detector;
+                detector = GoodFeaturesToTrackDetector_GPU(250, 0.01, 0);
+                
+                GpuMat d_img_1(img_1);
+                GpuMat d_vector_key_points;
+                
+                detector(d_img_1, d_vector_key_points);
+                VisualFrontend::downloadPoints(
+                    d_vector_key_points, keypoints_1);
             }
+            else
+            {
+                // Detect features.
+                std::string detectorType = "Feature2D.BRISK";
+                cv::Ptr<cv::FeatureDetector>detector = 
+                    cv::Algorithm::create<cv::FeatureDetector>(detectorType);
+                detector->set("thres", feature_detector_threshold);
+                detector->detect(img_1, vector_key_points);
+                
+                // Convert keypoints points.
+                for (auto kp : vector_key_points)
+                {
+                    keypoints_1.push_back(kp.pt);
+                }
+            }
+
+            // Skip if no result found.
+            if (keypoints_1.size() == 0) {continue;}
 
             // Prepare for optical flow matching.
             std::vector<unsigned char> status_1;
@@ -90,21 +106,74 @@ int main( int argc, char** argv )
             std::chrono::steady_clock::time_point t1;
             std::chrono::steady_clock::time_point t2;
             
-            // Match the points and compute the time.
-            t1 = std::chrono::steady_clock::now();
-            cv::calcOpticalFlowPyrLK(
-                img_1, img_2, keypoints_1, keypoints_1_2, status_1, error_1);
-            t2 = std::chrono::steady_clock::now();
-            time_used += std::chrono::duration_cast
-                <std::chrono::duration<double>>(t2 - t1);
-            
-            // Cross validate and check status.
-            t1 = std::chrono::steady_clock::now();
-            cv::calcOpticalFlowPyrLK(
-                img_2, img_1, keypoints_1_2, keypoints_2_1, status_2, error_2);
-            t2 = std::chrono::steady_clock::now();
-            time_used += std::chrono::duration_cast
-                <std::chrono::duration<double>>(t2 - t1);
+            if (is_gpu)
+            {
+                cv::Mat mat_p = cv::Mat(1, keypoints_1.size(), CV_32FC2);
+                for (size_t i = 0; i < keypoints_1.size(); i++)
+                {
+                    mat_p.at<cv::Vec2f>(0, i)[0] = keypoints_1[i].x;
+                    mat_p.at<cv::Vec2f>(0, i)[1] = keypoints_1[i].y;
+                }
+                GpuMat d_img_1(img_1);
+                GpuMat d_img_2(img_2);
+                GpuMat d_keypoints_1(mat_p);
+                GpuMat d_keypoints_1_2;
+                GpuMat d_keypoints_2_1;         
+                GpuMat d_status_1;
+                GpuMat d_status_2;
+
+                // Match the points and compute the time.
+                t1 = std::chrono::steady_clock::now();
+                
+                tracker.sparse(
+                    d_img_1, d_img_2, 
+                    d_keypoints_1, d_keypoints_1_2, 
+                    d_status_1);
+                
+                t2 = std::chrono::steady_clock::now();
+                time_used += std::chrono::duration_cast
+                    <std::chrono::duration<double, std::milli>>(t2 - t1);                  
+
+                // Cross validate and check status.
+                t1 = std::chrono::steady_clock::now();
+                tracker.sparse(
+                    d_img_2, d_img_1, 
+                    d_keypoints_1_2, d_keypoints_2_1, 
+                    d_status_2);
+                t2 = std::chrono::steady_clock::now();
+                time_used += std::chrono::duration_cast
+                    <std::chrono::duration<double, std::milli>>(t2 - t1);                  
+
+                // Download results to CPU.
+                VisualFrontend::downloadPoints(d_keypoints_1, keypoints_1);
+                VisualFrontend::downloadPoints(d_keypoints_1_2, keypoints_1_2);
+                VisualFrontend::downloadPoints(d_keypoints_2_1, keypoints_2_1);
+                VisualFrontend::downloadMasks(d_status_1, status_1);
+                VisualFrontend::downloadMasks(d_status_2, status_2);
+            }
+            else
+            {
+                // Match the points and compute the time.
+                t1 = std::chrono::steady_clock::now();
+                                
+                cv::calcOpticalFlowPyrLK(
+                    img_1, img_2, 
+                    keypoints_1, keypoints_1_2, 
+                    status_1, error_1);
+                t2 = std::chrono::steady_clock::now();
+                time_used += std::chrono::duration_cast
+                    <std::chrono::duration<double>>(t2 - t1);
+                
+                // Cross validate and check status.
+                t1 = std::chrono::steady_clock::now();
+                cv::calcOpticalFlowPyrLK(
+                    img_2, img_1, 
+                    keypoints_1_2, keypoints_2_1, 
+                    status_2, error_2);
+                t2 = std::chrono::steady_clock::now();
+                time_used += std::chrono::duration_cast
+                    <std::chrono::duration<double>>(t2 - t1);
+            }
 
             int found = 0;
             for (size_t i = 0; i < status_1.size(); i++) 

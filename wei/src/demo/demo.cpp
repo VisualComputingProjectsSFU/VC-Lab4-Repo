@@ -4,8 +4,8 @@
 
 int main(int argc, char *argv[])
 {
-    cv::Mat img_1_src = cv::imread("1.png", CV_LOAD_IMAGE_COLOR);
-    cv::Mat img_2_src = cv::imread("2.png", CV_LOAD_IMAGE_COLOR);
+    cv::Mat img_1_src = cv::imread("../1.png", CV_LOAD_IMAGE_COLOR);
+    cv::Mat img_2_src = cv::imread("../2.png", CV_LOAD_IMAGE_COLOR);
 
     // Test of occupency grid.
     OccupancyGrid grid;

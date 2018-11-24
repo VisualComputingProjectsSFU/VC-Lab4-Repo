@@ -21,9 +21,9 @@ class VisualFrontend
         }
 
         // Utils.
-        static void downloadMask(
+        static void downloadMasks(
             const GpuMat &d_mat, std::vector<uchar> &vec);
-        static void downloadPoint(
+        static void downloadPoints(
             const GpuMat &d_mat, std::vector<cv::Point2f> &vec);
 
     protected:
@@ -42,13 +42,16 @@ class VisualFrontend
 
     private:
 
+	// Configurations.
+	const bool is_gpu = true;
+
         // Unique ID for each point.
         unsigned int new_id;
 
         // KLT tracker and feature detector.
         cv::Ptr<cv::FeatureDetector> detector_cpu;
         GoodFeaturesToTrackDetector_GPU detector_gpu;
-        // PyrLKOpticalFlow d_pyrLK;
+        PyrLKOpticalFlow tracker_gpu;
 
         // Data needed to guide extraction.
         OccupancyGrid grid;
